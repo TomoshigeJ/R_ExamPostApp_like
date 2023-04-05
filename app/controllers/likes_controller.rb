@@ -3,18 +3,20 @@ class LikesController < ApplicationController
     @post = Post.find(params[:post_id])
     @like = current_user.likes.build(post: @post)
     if @like.save
-      redirect_to @post, notice: 'Liked!'
+      redirect_to posts_path, success: 'Liked!'
     else
-      redirect_to @post, alert: 'Error'
+      redirect_to posts_path, danger: 'Error'
+    end
   end
 
   def destroy
     @like = current_user.likes.find_by(post_id: params[:post_id])
     if @like
       @like.destroy
-      redirect_to @like.post, notice: 'Unliked!'
+      redirect_to posts_path, succless: 'Unliked!'
     else
-      redirect_to root_url, alert: 'Error'
+      redirect_to posts_path, danger: 'Error'
     end
   end
+
 end

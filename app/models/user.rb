@@ -18,4 +18,8 @@ class User < ApplicationRecord
     # @user.mine?(object)のように利用すると、object.user_id と @user.id を比較する。
     object.user_id == id
   end
+
+  def like?(post)
+    likes.where(post_id: post.id).exists?
+  end
 end
