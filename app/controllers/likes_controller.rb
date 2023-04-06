@@ -18,5 +18,4 @@ class LikesController < ApplicationController
       redirect_to posts_path, danger: 'Error'
     end
   end
-
 end
