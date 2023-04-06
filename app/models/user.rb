@@ -21,7 +21,6 @@ class User < ApplicationRecord
 
   def like?(post)
     # likes.where(post_id: post.id).exists?
-    # 
     likes.exists?(post_id: post.id)
   end
 end
