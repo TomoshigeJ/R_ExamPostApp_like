@@ -43,6 +43,10 @@ class PostsController < ApplicationController
     redirect_to posts_url, success: 'Post was successfully destroyed.'
   end
 
+  def likes
+    @likes = current_user.likes
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.

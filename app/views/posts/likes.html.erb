@@ -1,0 +1,27 @@
+<h1>Liked Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Author</th>
+      <th>Title</th>
+      <th>content<th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @likes.each do |like| %>
+      <tr>
+        <td><%=  "#{like.user.first_name}  #{like.user.last_name}" %></td>
+        <td><%= like.post.title %></td>
+        <td><%= like.post.content %></td>
+        <td><%= link_to 'Show', like.post %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Post', new_post_path %>
